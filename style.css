@@ -1,0 +1,283 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('./assets/fonts/Urbanist.ttf');
+}
+
+@media print {
+  html, body {
+    width: 210mm;
+    height: 294mm;
+    print-color-adjust: exact;
+  }
+}
+
+
+:root {
+  --rosewater: #dc8a78;
+  --flamingo: #dd7878;
+  --pink: #ea76cb;
+  --mauve: #8839ef;
+  --red: #d20f39;
+  --maroon: #e64553;
+  --peach: #fe640b;
+  --yellow: #df8e1d;
+  --green: #40a02b;
+  --teal: #179299;
+  --sky: #04a5e5;
+  --sapphire: #209fb5;
+  --blue: #1e66f5;
+  --lavender: #7287fd;
+  --text: #4c4f69;
+  --subtext1: #5c5f77;
+  --subtext0: #6c6f85;
+  --overlay2: #7c7f93;
+  --overlay1: #8c8fa1;
+  --overlay0: #9ca0b0;
+  --surface2: #acb0be;
+  --surface1: #bcc0cc;
+  --surface0: #ccd0da;
+  --base: #eff1f5;
+  --mantle: #e6e9ef;
+  --crust: #dce0e8;
+
+  --accent: var(--mauve)
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  background: var(--text);
+  color: var(--text);
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+
+
+}
+
+a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--accent);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.paper {
+  margin: auto;
+  background: var(--base);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1.9fr 0.1fr;
+  gap: 0 0;
+  grid-template-areas:
+      "left right"
+      "left footer"
+}
+
+.a4 {
+  width: 210mm;
+  height: 294mm;
+}
+
+.button {
+  background: var(--subtext1);
+  color: var(--base);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.left {
+  grid-area: left;
+  background: var(--accent);
+  color: var(--base);
+  padding: 2em;
+  border-radius: 0 1em 1em 0;
+  font-size: 0.8em;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: var(--base);
+  }
+
+  hr {
+    color: var(--base);
+    width: 100%;
+    padding: 0
+  }
+
+  ul {
+    padding-left: 2em;
+  }
+
+  .image {
+    width: 100%;
+    border-radius: 1rem;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+  }
+}
+
+.right {
+  grid-area: right;
+  padding: 1em;
+
+  hr {
+    color: var(--text);
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+
+    .logo {
+      font-weight: 300;
+      font-size: 4em;
+      line-height: 0;
+    }
+
+    .first-name {
+      line-height: 0.4em;
+      font-weight: 300;
+    }
+
+    .last-name {
+      line-height: 0.4em;
+      font-weight: 300;
+    }
+  }
+
+  .title {
+    letter-spacing: .4em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .about {
+    margin-block: 4em;
+    border-inline: 3px solid var(--accent);
+    padding-inline: 2em;
+    border-radius: 1rem;
+  }
+
+  .experience {
+    margin-bottom: 3em;
+
+    .timeline{
+      position: relative;
+      padding-left: 3em;
+
+      .job{
+        margin-block: 2em;
+        position:relative;
+        line-height: 0.2em;
+
+        .time {
+          font-size: .7em;
+        }
+
+        .position {
+          font-weight: 700;
+        }
+
+        .place {
+          display: flex;
+          font-size: .7em;
+          align-items: center;
+          margin: 0;
+          height: 0;
+          gap: 1em;
+        }
+
+        .description {
+          line-height: 1.2em;
+          font-size: .8em;
+        }
+      }
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      bottom: 0;
+      width: 1px;
+      background: var(--surface2);
+    }
+
+    .job::before {
+      content: '';
+      position: absolute;
+      top: .8em;
+      left: -2.4175em;
+      width: .5em;
+      height: .5em;
+      border-radius: 100em;
+      background: var(--base);
+      border: 3px solid var(--accent);
+      z-index: 1;
+    }
+
+
+  }
+
+}
+
+.footer {
+  grid-area: footer;
+  color: var(--subtext0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  font-size: 0.7em;
+  margin-inline: 2rem;
+  margin-block: 1rem;
+  border-top: 1px solid var(--surface2);
+}
