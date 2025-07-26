@@ -233,9 +233,15 @@ h6 {
         .time {
           font-size: .7em;
         }
+        .company {
+          line-height: 1em;
+          margin-block: .3em;
+        }
 
         .position {
           font-weight: 700;
+          line-height: 1em;
+          margin-block: .3em;
         }
 
         .place {
