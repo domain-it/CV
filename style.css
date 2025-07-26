@@ -7,12 +7,20 @@
   font-family: 'Urbanist';
   src: url('./assets/fonts/Urbanist.ttf');
 }
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('./assets/fonts/GeistMono.ttf');
+}
 
 @media print {
   html, body {
-    width: 210mm;
-    height: 294mm;
     print-color-adjust: exact;
+  }
+  .print {
+    display: block;
+  }
+  .no-print {
+    display: none;
   }
 }
 
@@ -89,7 +97,7 @@ h6 {
   background: var(--base);
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1.9fr 0.1fr;
+  grid-template-rows: 0.1fr;
   gap: 0 0;
   grid-template-areas:
       "left right"
@@ -98,7 +106,7 @@ h6 {
 
 .a4 {
   width: 210mm;
-  height: 294mm;
+  height: 297mm;
 }
 
 .button {
@@ -118,14 +126,15 @@ h6 {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 2em;
 
   .title {
     display: flex;
     align-items: center;
-    gap: 2em;
     font-weight: bold;
     text-transform: uppercase;
+    margin-bottom: 1em;
   }
 
   a {
@@ -140,6 +149,7 @@ h6 {
 
   ul {
     padding-left: 2em;
+    margin: 0;
   }
 
   .image {
@@ -150,14 +160,17 @@ h6 {
   .contact {
     display: flex;
     flex-direction: column;
-    gap: .5em;
+    gap: 1em;
 
     > div {
       display: flex;
-      justify-content: space-between;
+      gap: 1em;
       align-items: center;
 
     }
+  }
+  ul {
+    line-height: 1.5em;
   }
 }
 
@@ -199,7 +212,7 @@ h6 {
   }
 
   .about {
-    margin-block: 4em;
+    margin-bottom: 3em;
     border-inline: 3px solid var(--accent);
     padding-inline: 2em;
     border-radius: 1rem;
@@ -267,6 +280,19 @@ h6 {
 
   }
 
+  .hobbies {
+    ul {
+      line-height: 1.3em;
+      padding-left: 1.8em;
+    }
+    li {
+      padding-left: 1em;
+    }
+    ::marker {
+      color: var(--accent);
+    }
+  }
+
 }
 
 .footer {
@@ -279,5 +305,8 @@ h6 {
   font-size: 0.7em;
   margin-inline: 2rem;
   margin-block: 1rem;
-  border-top: 1px solid var(--surface2);
+}
+
+.reverse {
+  flex-direction: column-reverse!important;
 }
